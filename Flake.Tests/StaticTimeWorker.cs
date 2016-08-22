@@ -1,23 +1,19 @@
 ﻿namespace Flake.Tests
 {
-  internal class StaticTimeWorker :IdWorker
-  {
-    private long _time = 1L;
+    using System;
 
-    public StaticTimeWorker(long workerId, long datacenterId, long sequence = 0)
-        : base(workerId, datacenterId, sequence)
+    internal class StaticTimeWorker : IdWorker
     {
-    }
+        public StaticTimeWorker(long workerId, long datacenterId, long sequence = 0)
+            : base(workerId, datacenterId, sequence)
+        {
+        }
 
-    protected override long TimeGen()
-    {
-      return _time + IdWorker.Twepoch;
-    }
+        protected override long TimeGen()
+        {
+            return Time + Twepoch;
+        }
 
-    public long Time
-    {
-      get { return _time; }
-      set { _time = value; }
+        public long Time { get; set; } = 1L;
     }
-  }
 }

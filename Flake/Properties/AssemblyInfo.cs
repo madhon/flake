@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Flake")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Acquis Insurance")]
+[assembly: AssemblyCompany("Home")]
 [assembly: AssemblyProduct("Flake")]
-[assembly: AssemblyCopyright("Copyright © Acquis Insurance 2015")]
+[assembly: AssemblyCopyright("Copyright © Home 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -36,4 +36,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 
-[assembly: InternalsVisibleTo("Snowflake.Tests")]
+[assembly: InternalsVisibleTo("Flake.Tests")]

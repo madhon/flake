@@ -1,22 +1,20 @@
 ﻿namespace Flake.Tests
 {
-  internal class WakingIdWorker : IdWorker
-  {
-    private int _slept = 0;
+    using System;
 
-    public WakingIdWorker(long workerId, long datacenterId, long sequence = 0) : base(workerId, datacenterId, sequence)
+    internal class WakingIdWorker : IdWorker
     {
-    }
+        public WakingIdWorker(long workerId, long datacenterId, long sequence = 0)
+            : base(workerId, datacenterId, sequence)
+        {
+        }
 
-    protected override long TilNextMillis(long lastTimestamp)
-    {
-      _slept++;
-      return base.TilNextMillis(lastTimestamp);
-    }
+        protected override long TilNextMillis(long lastTimestamp)
+        {
+            Slept++;
+            return base.TilNextMillis(lastTimestamp);
+        }
 
-    public int Slept
-    {
-      get { return _slept; }
+        public int Slept { get; private set; }
     }
-  }
 }

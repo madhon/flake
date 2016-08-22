@@ -1,21 +1,23 @@
 ﻿namespace Flake
 {
-  using System;
+    using System;
 
-  public class DisposableAction : IDisposable
-  {
-    readonly Action _action;
-
-    public DisposableAction(Action action)
+    public class DisposableAction : IDisposable
     {
-      if (action == null)
-        throw new ArgumentNullException("action");
-      _action = action;
-    }
+        private readonly Action _action;
 
-    public void Dispose()
-    {
-      _action();
+        public DisposableAction(Action action)
+        {
+            if (action == null)
+            {
+                throw new ArgumentNullException(nameof(action));
+            }
+            _action = action;
+        }
+
+        public void Dispose()
+        {
+            _action();
+        }
     }
-  }
 }
