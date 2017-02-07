@@ -15,9 +15,6 @@
             _action = action;
         }
 
-        public void Dispose()
-        {
-            _action();
-        }
+        public void Dispose() => _action();
     }
 }

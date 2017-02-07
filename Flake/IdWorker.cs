@@ -100,9 +100,6 @@
             return timestamp;
         }
 
-        protected virtual long TimeGen()
-        {
-            return TimeExtensions.CurrentTimeMillis();
-        }
+        protected virtual long TimeGen() => TimeExtensions.CurrentTimeMillis();
     }
 }
