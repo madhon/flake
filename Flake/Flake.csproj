@@ -6,6 +6,17 @@
     <Copyright>Copyright © Madhon 2016-2018</Copyright>
     <Authors>Madhon</Authors>
     <RepositoryUrl>https://madhon.visualstudio.com/DefaultCollection/_git/Flake</RepositoryUrl>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B5E760E-E246-4969-A232-E094F591EF16}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Flake</RootNamespace>
+    <AssemblyName>Flake</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
 
   <ItemGroup>
