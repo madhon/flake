@@ -1,7 +1,5 @@
 ﻿namespace Flake.Tests
 {
-    using System;
-
     internal class WakingIdWorker : IdWorker
     {
         public WakingIdWorker(long workerId, long datacenterId, long sequence = 0)

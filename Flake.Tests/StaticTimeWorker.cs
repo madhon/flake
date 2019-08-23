@@ -1,7 +1,5 @@
 ﻿namespace Flake.Tests
 {
-    using System;
-
     internal class StaticTimeWorker : IdWorker
     {
         public StaticTimeWorker(long workerId, long datacenterId, long sequence = 0)
