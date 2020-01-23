@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'Hosted VS2017'
+  vmImage: 'windows-latest'
 
 steps:
   - task: UseDotNet@2
