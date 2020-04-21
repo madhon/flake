@@ -1,12 +1,9 @@
 ﻿namespace Flake
 {
     using System;
-    using Flake.Logging;
 
     public class IdWorker
     {
-        private readonly ILog log = LogProvider.GetCurrentClassLogger();
-
         public const long Twepoch = 1288834974657L;
 
         private const int WorkerIdBits = 5;
@@ -39,9 +36,9 @@
                 throw new ArgumentException($"datacenter Id can't be greater than {MaxDatacenterId.ToString()} or less than 0");
             }
 
-            log.Info(
-                $"worker starting. timestamp left shift {TimestampLeftShift.ToString()}, datacenter id bits {DatacenterIdBits.ToString()}, worker id bits {WorkerIdBits.ToString()}, sequence bits {SequenceBits.ToString()}, workerid {workerId.ToString()}"
-                );
+            //log.Info(
+            //    $"worker starting. timestamp left shift {TimestampLeftShift.ToString()}, datacenter id bits {DatacenterIdBits.ToString()}, worker id bits {WorkerIdBits.ToString()}, sequence bits {SequenceBits.ToString()}, workerid {workerId.ToString()}"
+             //   );
         }
 
         public long WorkerId { get; protected set; }
