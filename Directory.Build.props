@@ -6,13 +6,14 @@
     <Authors>Madhon</Authors>
 
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
     
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://madhon.visualstudio.com/DefaultCollection/_git/Flake</RepositoryUrl>
 
     <Deterministic>false</Deterministic>
     
+    <EmbedAllSources>true</EmbedAllSources>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -30,6 +31,5 @@
 
   <ItemGroup>
     <PackageReference Include="Nerdbank.GitVersioning" Version="3.1.74" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
   </ItemGroup>
 </Project>
