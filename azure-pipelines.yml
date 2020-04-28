@@ -34,7 +34,7 @@ steps:
     inputs:
       command: 'build'
       projects: '**/*.csproj'
-      arguments: '--configuration $(BuildConfiguration) --no-build'
+      arguments: '--configuration $(BuildConfiguration)'
     env:      
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
