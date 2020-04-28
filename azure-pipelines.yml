@@ -34,12 +34,17 @@ steps:
     inputs:
       command: 'build'
       projects: '**/*.csproj'
-      arguments: '--configuration $(BuildConfiguration)'
+      arguments: '--configuration $(BuildConfiguration) --no-build'
     env:      
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
   - task: DotNetCoreCLI@2
+    displayName: "Unit testing"
     inputs:
       command: 'test'
       projects: 'Flake.Tests/Flake.Tests.csproj'
+      arguments: '--no-build'
+    env:      
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1      
   
