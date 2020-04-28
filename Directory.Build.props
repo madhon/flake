@@ -2,7 +2,7 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Company>Madhon</Company>
-    <Copyright>Copyright © Madhon 2016-2019</Copyright>
+    <Copyright>Copyright © Madhon 2016-2020</Copyright>
     <Authors>Madhon</Authors>
 
     <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>-->
