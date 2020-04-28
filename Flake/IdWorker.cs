@@ -19,6 +19,12 @@
 
         private long _lastTimestamp = -1L;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="workerId">Worker ID</param>
+        /// <param name="datacenterId">Datacenter ID</param>
+        /// <param name="sequence">Starting Sequence Number</param>
         public IdWorker(long workerId, long datacenterId, long sequence = 0L)
         {
             WorkerId = workerId;
@@ -51,6 +57,11 @@
 
         private readonly object _lock = new object();
 
+        /// <summary>
+        /// Get the Next ID
+        /// </summary>
+        /// <returns>Next ID</returns>
+        /// <exception cref="InvalidSystemClockException">When the clock is moving backwards</exception>
         public virtual long NextId()
         {
             lock (_lock)
