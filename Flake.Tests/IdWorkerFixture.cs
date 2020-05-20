@@ -4,9 +4,17 @@
     using System.Collections.Generic;
     using Xunit;
     using Shouldly;
+    using Xunit.Abstractions;
 
     public class IdWorkerFixture
     {
+        private readonly ITestOutputHelper testOutputHelper;
+
+        public IdWorkerFixture(ITestOutputHelper testOutputHelper)
+        {
+            this.testOutputHelper = testOutputHelper;
+        }
+
         private const long WorkerMask = 0x000000000001F000L;
         private const long DatacenterMask = 0x00000000003E0000L;
         private const ulong TimestampMask = 0xFFFFFFFFFFC00000UL;
@@ -125,7 +133,7 @@
                 var id = worker.NextId();
             }
             var t2 = TimeExtensions.CurrentTimeMillis();
-            Console.WriteLine("generated 1000000 ids in {0} ms, or {1} ids/second", (t2 - t).ToString(), (1000000000.0/(t2 - t)).ToString());
+            testOutputHelper.WriteLine("generated 1000000 ids in {0} ms, or {1} ids/second", (t2 - t).ToString(), (1000000000.0/(t2 - t)).ToString());
         }
 
         [Fact]
@@ -139,17 +147,19 @@
                 3
             };
             int idx = 0;
-            Func<long> timeFunc = () =>
+
+            long TimeFunc()
             {
                 var res = iter[idx++];
                 if (idx > iter.Count - 1)
                 {
                     idx = 0;
                 }
-                return res;
-            };
 
-            using (TimeExtensions.StubCurrentTime(timeFunc))
+                return res;
+            }
+
+            using (TimeExtensions.StubCurrentTime((Func<long>) TimeFunc))
             {
                 worker.Sequence = 4095;
                 worker.NextId();
@@ -170,7 +180,7 @@
                 var id = worker.NextId();
                 if (set.Contains(id))
                 {
-                    Console.WriteLine("Found duplicate : {0}", id.ToString());
+                    testOutputHelper.WriteLine("Found duplicate : {0}", id.ToString());
                 }
                 else
                 {
