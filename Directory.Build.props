@@ -32,4 +32,12 @@
   <ItemGroup>
     <PackageReference Include="Nerdbank.GitVersioning" Version="3.3.37" PrivateAssets="All" />
   </ItemGroup>
+
+  <Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+    <ItemGroup>
+        <_CustomFiles Include="..\automation\commit-msg" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_CustomFiles)" DestinationFolder="./../.git/hooks" />
+</Target>
 </Project>
+
