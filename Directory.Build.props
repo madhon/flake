@@ -16,7 +16,7 @@
     <EmbedAllSources>true</EmbedAllSources>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>en-GB</DefaultLanguage>
     <IncludeSymbols>false</IncludeSymbols>
 
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
