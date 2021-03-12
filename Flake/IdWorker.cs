@@ -41,10 +41,6 @@
             {
                 throw new ArgumentException($"datacenter Id can't be greater than {MaxDatacenterId.ToString()} or less than 0");
             }
-
-            //log.Info(
-            //    $"worker starting. timestamp left shift {TimestampLeftShift.ToString()}, datacenter id bits {DatacenterIdBits.ToString()}, worker id bits {WorkerIdBits.ToString()}, sequence bits {SequenceBits.ToString()}, workerid {workerId.ToString()}"
-             //   );
         }
 
         public long WorkerId { get; protected set; }
@@ -70,8 +66,6 @@
 
                 if (timestamp < _lastTimestamp)
                 {
-                    //exceptionCounter.incr(1);
-                    //log.Error("clock is moving backwards.  Rejecting requests until %d.", _lastTimestamp);
                     throw new InvalidSystemClockException(
                         $"Clock moved backwards.  Refusing to generate id for {(_lastTimestamp - timestamp).ToString()} milliseconds");
                 }

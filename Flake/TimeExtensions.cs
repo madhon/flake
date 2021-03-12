@@ -4,7 +4,7 @@
 
     public static class TimeExtensions
     {
-        public static Func<long> currentTimeFunc = InternalCurrentTimeMillis;
+        private static Func<long> currentTimeFunc = InternalCurrentTimeMillis;
 
         public static long CurrentTimeMillis() => currentTimeFunc();
 
