@@ -15,6 +15,9 @@ pool:
 variables:
   BuildConfiguration: 'release'
   BuildPlatform: 'any cpu'
+  DOTNET_NOLOGO: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
 
 steps:
   - task: UseDotNet@2
@@ -34,24 +37,15 @@ steps:
       projects: '**/*.csproj'
       feedsToUse: 'select'
       verbosityRestore: 'Quiet'
-    env:      
-      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-      DOTNET_CLI_TELEMETRY_OPTOUT: 1
   - task: DotNetCoreCLI@2
     displayName: "Build Project in $(BuildConfiguration) mode"
     inputs:
       command: 'build'
       projects: '**/*.csproj'
-      arguments: '--configuration $(BuildConfiguration) --no-restore'
-    env:      
-      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      arguments: '--configuration $(BuildConfiguration) --no-restore --nologo'
   - task: DotNetCoreCLI@2
     displayName: "Unit testing"
     inputs:
       command: 'test'
       projects: 'Flake.Tests/Flake.Tests.csproj'
-      arguments: '--configuration $(BuildConfiguration) --no-restore --no-build '
-    env:      
-      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-      DOTNET_CLI_TELEMETRY_OPTOUT: 1      
+      arguments: '--configuration $(BuildConfiguration) --no-restore --no-build --nologo'
