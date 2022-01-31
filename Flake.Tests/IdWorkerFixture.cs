@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using NUnit.Framework;
-    using Shouldly;
+    using FluentAssertions;
 
     [TestFixture]
     public class IdWorkerFixture
@@ -18,7 +18,7 @@
         {
             var worker = new IdWorker(1, 1);
             var v = worker.NextId();
-            v.ShouldBeGreaterThan(0);
+            v.Should().BeGreaterThan(0);
         }
 
         [Test]
@@ -30,14 +30,14 @@
         public void It_should_return_the_correct_job_id()
         {
             var s = new IdWorker(1, 1);
-            s.WorkerId.ShouldBe(1);
+            s.WorkerId.Should().Be(1);
         }
 
         [Test]
         public void It_should_return_the_datacenter_id()
         {
             var s = new IdWorker(1, 1);
-            s.DatacenterId.ShouldBe(1);
+            s.DatacenterId.Should().Be(1);
         }
 
         [Test]
@@ -50,7 +50,7 @@
             {
                 var id = worker.NextId();
                 var expected = (id & WorkerMask) >> 12;
-                workerId.ShouldBe(expected);
+                workerId.Should().Be(expected);
             }
         }
 
@@ -64,7 +64,7 @@
             {
                 var id = worker.NextId();
                 var expected = (id & DatacenterMask) >> 17;
-                datacenterId.ShouldBe(expected);
+                datacenterId.Should().Be(expected);
             }
         }
 
@@ -80,7 +80,7 @@
                     var id = worker.NextId();
                     var actual = (((ulong) id & TimestampMask) >> 22);
                     var expected = (t - IdWorker.Twepoch);
-                    actual.ShouldBe((ulong) expected);
+                    actual.Should().Be((ulong) expected);
                 }
             }
         }
@@ -100,7 +100,7 @@
             {
                 var id = worker.NextId();
                 var actual = (id & WorkerMask) >> 12;
-                actual.ShouldBe(workerId);
+                actual.Should().Be(workerId);
             }
         }
 
@@ -112,7 +112,7 @@
             for (var i = 0; i < 100; i++)
             {
                 var id = worker.NextId();
-                id.ShouldBeGreaterThan(lastId);
+                id.Should().BeGreaterThan(lastId);
                 lastId = id;
             }
         }
@@ -161,7 +161,7 @@
                 worker.Sequence = 4095;
                 worker.NextId();
             }
-            worker.Slept.ShouldBe(1);
+            worker.Slept.Should().Be(1);
         }
 
         [Test]
@@ -182,7 +182,7 @@
                     set.Add(id);
                 }
             }
-            set.Count.ShouldBe(N);
+            set.Count.Should().Be(N);
         }
 
         [Test]
@@ -190,7 +190,7 @@
         {
             var worker = new IdWorker(0, 0);
             var id = worker.NextId();
-            id.ShouldBeGreaterThan(50000000000L);
+            id.Should().BeGreaterThan(50000000000L);
         }
 
         [Test]
@@ -201,32 +201,36 @@
 
             // reported at https://github.com/twitter/snowflake/issues/6
             // first we generate 2 ids with the same time, so that we get the sequence to 1
-            worker.Sequence.ShouldBe(0);
-            worker.Time.ShouldBe(1);
+            worker.Sequence.Should().Be(0);
+            worker.Time.Should().Be(1);
             var id1 = worker.NextId();
 
-            (id1 >> 22).ShouldBe(1);
-            (id1 & sequenceMask).ShouldBe(0);
+            (id1 >> 22).Should().Be(1);
+            (id1 & sequenceMask).Should().Be(0);
 
-            worker.Sequence.ShouldBe(0);
-            worker.Time.ShouldBe(1);
+            worker.Sequence.Should().Be(0);
+            worker.Time.Should().Be(1);
             var id2 = worker.NextId();
 
-            (id2 >> 22).ShouldBe(1);
-            (id2 & sequenceMask).ShouldBe(1);
+            (id2 >> 22).Should().Be(1);
+            (id2 & sequenceMask).Should().Be(1);
 
             //then we set the time backwards
 
             worker.Time = 0;
-            worker.Sequence.ShouldBe(1);
-            Should.Throw<InvalidSystemClockException>(() => worker.NextId());
-            worker.Sequence.ShouldBe(1); // this used to get reset to 0, which would cause conflicts
+            worker.Sequence.Should().Be(1);
+
+
+            Action act = () => worker.NextId();
+            act.Should().Throw<InvalidSystemClockException>();
+
+            worker.Sequence.Should().Be(1); // this used to get reset to 0, which would cause conflicts
 
             worker.Time = 1;
             var id3 = worker.NextId();
 
-            (id3 >> 22).ShouldBe(1);
-            (id3 & sequenceMask).ShouldBe(2);
+            (id3 >> 22).Should().Be(1);
+            (id3 & sequenceMask).Should().Be(2);
         }
     }
 }
