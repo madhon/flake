@@ -15,10 +15,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.AzureRepos.Git" Version="1.1.1" PrivateAssets="All" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.36.1.44192">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.37.0.45539">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="MinVer" Version="3.1.0" />
   </ItemGroup>
 
 </Project>
