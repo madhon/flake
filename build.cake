@@ -1,4 +1,8 @@
+#addin "nuget:?package=Cake.MinVer&version=2.0.0"
+
 var target = Argument("target", "Test");
+
+var version = MinVer();
 
 var configuration = Argument("configuration", "Release");
 
