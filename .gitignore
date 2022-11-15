@@ -229,4 +229,4 @@ $RECYCLE.BIN/
 # Mac crap
 .DS_Store
 
-.nuke
+.nuke/temp
