@@ -7,12 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake", "Flake\Flake.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flake.Tests", "Flake.Tests\Flake.Tests.csproj", "{8969A341-1C78-41FB-A3F5-22E768EFF1CE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{47B66F76-8EC0-4333-8CE4-F84119A5E42C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47B66F76-8EC0-4333-8CE4-F84119A5E42C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47B66F76-8EC0-4333-8CE4-F84119A5E42C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B5E760E-E246-4969-A232-E094F591EF16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2B5E760E-E246-4969-A232-E094F591EF16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B5E760E-E246-4969-A232-E094F591EF16}.Release|Any CPU.ActiveCfg = Release|Any CPU
