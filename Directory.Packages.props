@@ -9,7 +9,7 @@
     <PackageVersion Include="MinVer" Version="4.2.0" />
     <PackageVersion Include="SecurityCodeScan.VS2019" Version="5.6.7" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="8.51.0.59060" />
-    <PackageVersion Include="FluentAssertions" Version="6.8.0" />
+    <PackageVersion Include="FluentAssertions" Version="6.9.0" />
     <PackageVersion Include="coverlet.collector" Version="3.2.0" />
     <PackageVersion Include="NUnit" Version="3.13.3" />
     <PackageVersion Include="NUnit3TestAdapter" Version="4.3.1" />
