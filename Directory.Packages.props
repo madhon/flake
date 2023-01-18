@@ -1,6 +1,8 @@
 <Project>
   <ItemGroup>
     <!-- System packages -->
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageVersion Include="System.Text.Encodings.Web" Version="6.0.0" />
     <PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
     <!-- Microsoft packages -->
     <PackageVersion Include="Microsoft.SourceLink.AzureRepos.Git" Version="1.1.1" />

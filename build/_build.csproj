@@ -11,8 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MinVer" Version="4.2.0"/>
-    <PackageReference Include="Nuke.Common" Version="6.3.0"/>
+    <PackageReference Include="MinVer" Version="4.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2"/>
+    <PackageReference Include="Nuke.Common" Version="6.3.0" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="6.0.0"/>
   </ItemGroup>
 
   <ItemGroup>
