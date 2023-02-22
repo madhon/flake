@@ -5,7 +5,7 @@
     <PackageVersion Include="System.Text.Encodings.Web" Version="6.0.0" />
     <PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
     <!-- Microsoft packages -->
-    <PackageVersion Include="Microsoft.SourceLink.AzureRepos.Git" Version="1.1.1" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
     <!-- 3rd party packages -->
     <PackageVersion Include="MinVer" Version="4.3.0" />
