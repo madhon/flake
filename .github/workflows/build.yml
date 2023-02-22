@@ -23,7 +23,7 @@ jobs:
         with:
           dotnet-version: 6.x
       - name: Build
-        run: build.sh Test
+        run: ./build.sh Test
       
       
     
