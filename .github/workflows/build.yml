@@ -14,16 +14,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    
+    strategy:
+      matrix:
+        dotnet: [ '6.x', '7.x' ]    
     steps:
       - uses: actions/checkout@v3
       
       - name: Install .Net SDK
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: |
-            6.x
-            7.x
+          dotnet-version: ${{ matrix.dotnet }}
       - name: Build
         run: ./build.sh Test
       
