@@ -5,15 +5,15 @@
     
     <!-- Microsoft packages -->
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="1.1.1" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.6.2" />
 
     <!-- 3rd party packages -->
     <PackageVersion Include="MinVer" Version="4.3.0" />
     <PackageVersion Include="SecurityCodeScan.VS2019" Version="5.6.7" />
-    <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.1.0.70676" />
+    <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.3.0.71466" />
     <PackageVersion Include="FluentAssertions" Version="6.11.0" />
     <PackageVersion Include="coverlet.collector" Version="6.0.0" />
     <PackageVersion Include="NUnit" Version="3.13.3" />
-    <PackageVersion Include="NUnit3TestAdapter" Version="4.4.2" />
+    <PackageVersion Include="NUnit3TestAdapter" Version="4.5.0" />
   </ItemGroup>
 </Project>
