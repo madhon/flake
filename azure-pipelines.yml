@@ -25,10 +25,10 @@ stages:
         displayName: 'Compile'
         steps:
           - task: UseDotNet@2
-            displayName: "Use .Net Core SDK 6.0"
+            displayName: "Use .Net Core SDK 8.0"
             inputs:
               packageType: 'sdk'
-              version: '6.0.x'
+              version: '8.0.x'
           - task: CmdLine@2
             inputs:
               script: './build.sh Test'
