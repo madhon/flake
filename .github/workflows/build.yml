@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
@@ -24,6 +24,7 @@ jobs:
           dotnet-version: |
             6.x
             7.x
+            8.x
 
       - name: Build
         run: ./build.sh Test
