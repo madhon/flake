@@ -2,10 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using NUnit.Framework;
-    using FluentAssertions;
 
-    [TestFixture]
     public class IdWorkerFixture
     {
 
@@ -13,7 +10,7 @@
         private const long DatacenterMask = 0x00000000003E0000L;
         private const ulong TimestampMask = 0xFFFFFFFFFFC00000UL;
 
-        [Test]
+        [Fact]
         public void It_should_generate_an_id()
         {
             var worker = new IdWorker(1, 1);
@@ -21,26 +18,26 @@
             v.Should().BeGreaterThan(0);
         }
 
-        [Test]
+        [Fact]
         public void It_should_return_an_accurate_timestamp()
         {
         }
 
-        [Test]
+        [Fact]
         public void It_should_return_the_correct_job_id()
         {
             var s = new IdWorker(1, 1);
             s.WorkerId.Should().Be(1);
         }
 
-        [Test]
+        [Fact]
         public void It_should_return_the_datacenter_id()
         {
             var s = new IdWorker(1, 1);
             s.DatacenterId.Should().Be(1);
         }
 
-        [Test]
+        [Fact]
         public void It_should_properly_mask_worker_id()
         {
             const long workerId = 0x1F;
@@ -54,7 +51,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public void It_should_properly_mask_the_datacenter_id()
         {
             const int workerId = 0x1F;
@@ -68,7 +65,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public void It_should_properly_mask_timestamp()
         {
             var worker = new IdWorker(31, 31);
@@ -85,7 +82,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public void It_should_roll_over_sequence_id()
         {
             // put a zero in the low bit so we can detect overflow from the sequence
@@ -104,7 +101,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public void It_should_generate_increasing_ids()
         {
             var worker = new IdWorker(1, 1);
@@ -117,7 +114,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public void It_should_generate_1_million_ids_quickly()
         {
             var worker = new IdWorker(31, 31);
@@ -131,7 +128,7 @@
             Console.WriteLine($"generated 1000000 ids in {t2 - t} ms, or {(1000000000.0 / (t2 - t))} ids/second");
         }
 
-        [Test]
+        [Fact]
         public void It_should_sleep_if_we_rollover_twice_in_the_same_millisecond()
         {
             var worker = new WakingIdWorker(1, 1);
@@ -164,7 +161,7 @@
             worker.Slept.Should().Be(1);
         }
 
-        [Test]
+        [Fact]
         public void It_should_generate_only_unique_ids()
         {
             var worker = new IdWorker(31, 31);
@@ -185,7 +182,7 @@
             set.Count.Should().Be(N);
         }
 
-        [Test]
+        [Fact]
         public void It_should_generate_ids_over_50_billion()
         {
             var worker = new IdWorker(0, 0);
@@ -193,7 +190,7 @@
             id.Should().BeGreaterThan(50000000000L);
         }
 
-        [Test]
+        [Fact]
         public void It_should_generate_only_unique_ids_even_when_time_goes_backward()
         {
             const long sequenceMask = -1L ^ (-1L << 12);
