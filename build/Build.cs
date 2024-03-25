@@ -76,6 +76,11 @@ class Build : NukeBuild
         {
             DotNetTest(s => s
                 .SetProjectFile(Solution)
+                .SetProperties( new Dictionary<string, object>
+                {
+                    ["CollectCoverage"] = "true" , 
+                    ["CoverletOutputFormat"] = "cobertura"
+                })
                 .SetConfiguration(Configuration)
                 .EnableNoRestore()
                 .EnableNoBuild());

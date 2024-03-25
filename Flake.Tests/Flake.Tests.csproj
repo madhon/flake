@@ -5,15 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="altcover"  />
+    <PackageReference Include="coverlet.msbuild">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="coverlet.collector" >
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="FluentAssertions" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    
+    <PackageReference Include="ReportGenerator" Version="5.2.0" />
     <PackageReference Include="System.Text.RegularExpressions" />
-
     <PackageReference Include="xunit" />
     <PackageReference Include="xunit.runner.visualstudio" >
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
