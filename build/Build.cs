@@ -36,16 +36,15 @@ class Build : NukeBuild
     [MinVer] readonly MinVer MinVer;
 
     Target Print => _ => _
-        .Before(Clean)
         .Executes(() =>
         {
-            Log.Information("Branch = {Branch}", AzurePipelines.SourceBranch);
-            Log.Information("Commit = {Commit}", AzurePipelines.SourceVersion);
-            Log.Information("MinVer = {Value}", MinVer.Version);
+            Log.Information("Branch = {Branch}", AzurePipelines?.SourceBranch);
+            Log.Information("Commit = {Commit}", AzurePipelines?.SourceVersion);
+            Log.Information("MinVer = {Value}", MinVer?.Version);
         });
 
     Target Clean => _ => _
-        .Before(Restore)
+        .DependsOn(Print)
         .Executes(() =>
         {
             sourceDirectory.GlobDirectories("**/bin", "**/obj").DeleteDirectories();
@@ -54,6 +53,7 @@ class Build : NukeBuild
         });
 
     Target Restore => _ => _
+        .DependsOn(Print)
         .Executes(() =>
         {
             DotNetRestore(s => s

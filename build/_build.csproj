@@ -17,7 +17,7 @@
 	<PackageReference Include="Nuke.Common" Version="8.0.0" />
 	<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
 	<PackageReference Include="NuGet.Packaging" Version="6.9.1" />
-  <PackageReference Include="Azure.Identity" Version="1.10.4" />
+  <PackageReference Include="Azure.Identity" Version="1.11.0" />
   </ItemGroup>
 
   <ItemGroup>
