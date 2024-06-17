@@ -33,14 +33,14 @@ class Build : NukeBuild
 
     AzurePipelines AzurePipelines => AzurePipelines.Instance;
 
-    [MinVer] readonly MinVer MinVer;
+    // [MinVer] readonly MinVer MinVer;
 
     Target Print => _ => _
         .Executes(() =>
         {
             Log.Information("Branch = {Branch}", AzurePipelines?.SourceBranch);
             Log.Information("Commit = {Commit}", AzurePipelines?.SourceVersion);
-            Log.Information("MinVer = {Value}", MinVer?.Version);
+            //Log.Information("MinVer = {Value}", MinVer?.Version);
         });
 
     Target Clean => _ => _

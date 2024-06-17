@@ -16,12 +16,12 @@
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	<PackageReference Include="Nuke.Common" Version="8.0.0" />
 	<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-	<PackageReference Include="NuGet.Packaging" Version="6.9.1" />
-  <PackageReference Include="Azure.Identity" Version="1.11.0" />
+	<PackageReference Include="NuGet.Packaging" Version="6.10.0" />
+  <PackageReference Include="Azure.Identity" Version="1.11.4" />
   </ItemGroup>
 
   <ItemGroup>
-	<PackageDownload Include="minver-cli" Version="[5.0.0]" />
+    <PackageDownload Include="minver-cli" Version="[5.0.0]" />
   </ItemGroup>
 
 </Project>
