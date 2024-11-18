@@ -25,6 +25,7 @@ jobs:
             6.x
             7.x
             8.x
+            9.x
 
       - name: Build
         run: ./build.sh Test
