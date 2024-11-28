@@ -1,24 +1,24 @@
-﻿namespace Flake
+﻿namespace Flake;
+
+using System;
+
+public static class TimeExtensions
 {
-    using System;
+    private static Func<long> currentTimeFunc = InternalCurrentTimeMillis;
 
-    public static class TimeExtensions
+    public static long CurrentTimeMillis() => currentTimeFunc();
+
+    public static IDisposable StubCurrentTime(Func<long> func)
     {
-        private static Func<long> currentTimeFunc = InternalCurrentTimeMillis;
+        currentTimeFunc = func;
+        return new DisposableAction(() => { currentTimeFunc = InternalCurrentTimeMillis; });
+    }
 
-        public static long CurrentTimeMillis() => currentTimeFunc();
-
-        public static IDisposable StubCurrentTime(Func<long> func)
-        {
-            currentTimeFunc = func;
-            return new DisposableAction(() => { currentTimeFunc = InternalCurrentTimeMillis; });
-        }
-
-        public static IDisposable StubCurrentTime(long millis)
-        {
-            currentTimeFunc = () => millis;
-            return new DisposableAction(() => { currentTimeFunc = InternalCurrentTimeMillis; });
-        }
+    public static IDisposable StubCurrentTime(long millis)
+    {
+        currentTimeFunc = () => millis;
+        return new DisposableAction(() => { currentTimeFunc = InternalCurrentTimeMillis; });
+    }
 
 #if NETSTANDARD2_0
         private static readonly DateTime Jan1st1970 = new DateTime
@@ -31,5 +31,4 @@
     private static long InternalCurrentTimeMillis() => (long)(DateTime.UtcNow - DateTime.UnixEpoch).TotalMilliseconds;
 #endif
 
-    }
 }
