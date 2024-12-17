@@ -103,7 +103,8 @@
     {
       "properties": {
         "Configuration": {
-          "type": "string"
+          "type": "string",
+          "description": "Configuration to build - Default is 'Debug' (local) or 'Release' (server)"
         },
         "Solution": {
           "type": "string",

@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml;
 using Nuke.Common;
 using Nuke.Common.CI.AzurePipelines;
+using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
@@ -28,20 +29,18 @@ class Build : NukeBuild
 
     [GitRepository] readonly GitRepository GitRepository;
 
+    [MinVer] readonly MinVer MinVer;
+    
     AbsolutePath sourceDirectory => RootDirectory;
     AbsolutePath testDirectory => RootDirectory;
     AbsolutePath artifactsDirectory => RootDirectory / "artifacts";
 
-    AzurePipelines AzurePipelines => AzurePipelines.Instance;
-
-    // [MinVer] readonly MinVer MinVer;
-
     Target Print => _ => _
         .Executes(() =>
         {
-            Log.Information("Branch = {Branch}", AzurePipelines?.SourceBranch);
-            Log.Information("Commit = {Commit}", AzurePipelines?.SourceVersion);
-            //Log.Information("MinVer = {Value}", MinVer?.Version);
+            Log.Information("Branch = {Branch}", GitRepository.Branch);
+            Log.Information("Commit = {Commit}", GitRepository.Commit);
+            Log.Information("MinVer = {Value}", MinVer?.Version);
         });
 
     Target Clean => _ => _
