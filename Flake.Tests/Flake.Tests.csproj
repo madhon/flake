@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net80;net90</TargetFrameworks>
+    <OutputType>exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +19,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="ReportGenerator" />
     <PackageReference Include="System.Text.RegularExpressions" />
-    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.v3.core" />
     <PackageReference Include="xunit.runner.visualstudio" >
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
