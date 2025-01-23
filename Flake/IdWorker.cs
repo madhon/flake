@@ -4,6 +4,10 @@ using System;
 using System.Globalization;
 using System.Threading;
 
+/// <summary>
+/// Represents an ID generator using the Snowflake algorithm, which generates unique IDs
+/// based on a combination of timestamp, datacenter ID, worker ID, and sequence number.
+/// </summary>
 public class IdWorker
 {
     public const long Twepoch = 1288834974657L;
@@ -58,7 +62,7 @@ public class IdWorker
         private readonly object _lock = new object();
 #endif
     /// <summary>
-    /// Get the Next ID
+    /// Generates and returns the next unique ID.
     /// </summary>
     /// <returns>Next ID</returns>
     /// <exception cref="InvalidSystemClockException">When the clock is moving backwards</exception>
