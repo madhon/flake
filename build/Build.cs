@@ -1,21 +1,11 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml;
 using Nuke.Common;
-using Nuke.Common.CI.AzurePipelines;
-using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
-using Nuke.Common.Utilities.Collections;
 using Nuke.Common.Git;
 using Serilog;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
-using static Nuke.Common.IO.FileSystemTasks;
 using Nuke.Common.Tools.MinVer;
 
 class Build : NukeBuild

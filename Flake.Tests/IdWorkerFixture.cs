@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class IdWorkerFixture
 {
-
     private const long WorkerMask = 0x000000000001F000L;
     private const long DatacenterMask = 0x00000000003E0000L;
     private const ulong TimestampMask = 0xFFFFFFFFFFC00000UL;
@@ -15,7 +14,7 @@ public class IdWorkerFixture
     {
         var worker = new IdWorker(1, 1);
         var v = worker.NextId();
-        v.Should().BeGreaterThan(0);
+        v.ShouldBeGreaterThan(0);
     }
 
     [Fact]
@@ -27,14 +26,14 @@ public class IdWorkerFixture
     public void It_should_return_the_correct_job_id()
     {
         var s = new IdWorker(1, 1);
-        s.WorkerId.Should().Be(1);
+        s.WorkerId.ShouldBe(1);
     }
 
     [Fact]
     public void It_should_return_the_datacenter_id()
     {
         var s = new IdWorker(1, 1);
-        s.DatacenterId.Should().Be(1);
+        s.DatacenterId.ShouldBe(1);
     }
 
     [Fact]
@@ -47,7 +46,7 @@ public class IdWorkerFixture
         {
             var id = worker.NextId();
             var expected = (id & WorkerMask) >> 12;
-            workerId.Should().Be(expected);
+            workerId.ShouldBe(expected);
         }
     }
 
@@ -61,7 +60,7 @@ public class IdWorkerFixture
         {
             var id = worker.NextId();
             var expected = (id & DatacenterMask) >> 17;
-            datacenterId.Should().Be(expected);
+            datacenterId.ShouldBe(expected);
         }
     }
 
@@ -77,7 +76,7 @@ public class IdWorkerFixture
                 var id = worker.NextId();
                 var actual = (((ulong) id & TimestampMask) >> 22);
                 var expected = (t - IdWorker.Twepoch);
-                actual.Should().Be((ulong) expected);
+                actual.ShouldBe((ulong) expected);
             }
         }
     }
@@ -85,7 +84,6 @@ public class IdWorkerFixture
     [Fact]
     public void It_should_roll_over_sequence_id()
     {
-        // put a zero in the low bit so we can detect overflow from the sequence
         const long workerId = 4;
         const int datacenterId = 4;
         var worker = new IdWorker(workerId, datacenterId);
@@ -97,7 +95,7 @@ public class IdWorkerFixture
         {
             var id = worker.NextId();
             var actual = (id & WorkerMask) >> 12;
-            actual.Should().Be(workerId);
+            actual.ShouldBe(workerId);
         }
     }
 
@@ -109,7 +107,7 @@ public class IdWorkerFixture
         for (var i = 0; i < 100; i++)
         {
             var id = worker.NextId();
-            id.Should().BeGreaterThan(lastId);
+            id.ShouldBeGreaterThan(lastId);
             lastId = id;
         }
     }
@@ -158,7 +156,7 @@ public class IdWorkerFixture
             worker.Sequence = 4095;
             worker.NextId();
         }
-        worker.Slept.Should().Be(1);
+        worker.Slept.ShouldBe(1);
     }
 
     [Fact]
@@ -179,7 +177,7 @@ public class IdWorkerFixture
                 set.Add(id);
             }
         }
-        set.Count.Should().Be(N);
+        set.Count.ShouldBe(N);
     }
 
     [Fact]
@@ -187,7 +185,7 @@ public class IdWorkerFixture
     {
         var worker = new IdWorker(0, 0);
         var id = worker.NextId();
-        id.Should().BeGreaterThan(50000000000L);
+        id.ShouldBeGreaterThan(50000000000L);
     }
 
     [Fact]
@@ -196,37 +194,32 @@ public class IdWorkerFixture
         const long sequenceMask = -1L ^ (-1L << 12);
         var worker = new StaticTimeWorker(0, 0);
 
-        // reported at https://github.com/twitter/snowflake/issues/6
-        // first we generate 2 ids with the same time, so that we get the sequence to 1
-        worker.Sequence.Should().Be(0);
-        worker.Time.Should().Be(1);
+        worker.Sequence.ShouldBe(0);
+        worker.Time.ShouldBe(1);
         var id1 = worker.NextId();
 
-        (id1 >> 22).Should().Be(1);
-        (id1 & sequenceMask).Should().Be(0);
+        (id1 >> 22).ShouldBe(1);
+        (id1 & sequenceMask).ShouldBe(0);
 
-        worker.Sequence.Should().Be(0);
-        worker.Time.Should().Be(1);
+        worker.Sequence.ShouldBe(0);
+        worker.Time.ShouldBe(1);
         var id2 = worker.NextId();
 
-        (id2 >> 22).Should().Be(1);
-        (id2 & sequenceMask).Should().Be(1);
-
-        //then we set the time backwards
+        (id2 >> 22).ShouldBe(1);
+        (id2 & sequenceMask).ShouldBe(1);
 
         worker.Time = 0;
-        worker.Sequence.Should().Be(1);
-
+        worker.Sequence.ShouldBe(1);
 
         Action act = () => worker.NextId();
-        act.Should().Throw<InvalidSystemClockException>();
+        act.ShouldThrow<InvalidSystemClockException>();
 
-        worker.Sequence.Should().Be(1); // this used to get reset to 0, which would cause conflicts
+        worker.Sequence.ShouldBe(1);
 
         worker.Time = 1;
         var id3 = worker.NextId();
 
-        (id3 >> 22).Should().Be(1);
-        (id3 & sequenceMask).Should().Be(2);
+        (id3 >> 22).ShouldBe(1);
+        (id3 & sequenceMask).ShouldBe(2);
     }
 }
