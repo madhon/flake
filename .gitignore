@@ -232,3 +232,4 @@ $RECYCLE.BIN/
 .nuke/temp
 .idea
 coverage.json
+.qodo
