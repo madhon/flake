@@ -2,6 +2,7 @@
 
 using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Threading;
 
 /// <summary>
@@ -45,7 +46,7 @@ public class IdWorker
 
         if (datacenterId is > MaxDatacenterId or < 0)
         {
-            throw new ArgumentException($"datacenter Id can't be greater than {MaxDatacenterId.ToString()} or less than 0", nameof(workerId));
+            throw new ArgumentException($"datacenter Id can't be greater than {MaxDatacenterId.ToString()} or less than 0", nameof(datacenterId));
         }
     }
 
@@ -66,6 +67,7 @@ public class IdWorker
     /// </summary>
     /// <returns>Next ID</returns>
     /// <exception cref="InvalidSystemClockException">When the clock is moving backwards</exception>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public virtual long NextId()
     {
         lock (_lock)

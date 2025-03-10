@@ -15,10 +15,10 @@
 	<PackageReference Include="MinVer" Version="6.0.0" />
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	<PackageReference Include="Nuke.Common" Version="9.0.4" />
-	<PackageReference Include="System.Formats.Asn1" Version="9.0.1" />
-	<PackageReference Include="System.Text.Json" Version="9.0.1" />
+	<PackageReference Include="System.Formats.Asn1" Version="9.0.2" />
+	<PackageReference Include="System.Text.Json" Version="9.0.2" />
 	<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-	<PackageReference Include="NuGet.Packaging" Version="6.12.1" />
+	<PackageReference Include="NuGet.Packaging" Version="6.13.1" />
 	<PackageReference Include="Azure.Core" Version="1.45.0" />
   	<PackageReference Include="Azure.Identity" Version="1.13.2" />
   </ItemGroup>

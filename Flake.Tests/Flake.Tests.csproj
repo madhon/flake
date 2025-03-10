@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net80;net90</TargetFrameworks>
     <OutputType>exe</OutputType>
+    <IsTestProject>true</IsTestProject>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
     <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
   </PropertyGroup>
@@ -17,6 +18,7 @@
     <PackageReference Include="Shouldly" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage"/>
+    <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" />
     <PackageReference Include="ReportGenerator" />
     <PackageReference Include="System.Text.RegularExpressions" />
     <PackageReference Include="xunit.analyzers" >

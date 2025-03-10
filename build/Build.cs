@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Nuke.Common;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
@@ -64,14 +65,15 @@ class Build : NukeBuild
         .DependsOn(Compile)
         .Executes(() =>
         {
-            DotNetTest(s => s
-                .SetProjectFile(Solution)
+            DotNetRun(s => s
+                .SetProjectFile(Solution.Projects.FirstOrDefault(x => x.Name == "Flake.Tests"))
                 .SetProperties( new Dictionary<string, object>
                 {
                     ["CollectCoverage"] = "true" , 
                     ["CoverletOutputFormat"] = "cobertura",
                 })
                 .SetConfiguration(Configuration)
+                .SetFramework("net90")
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
