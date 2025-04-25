@@ -32,6 +32,7 @@ class Build : NukeBuild
             Log.Information("Branch = {Branch}", GitRepository.Branch);
             Log.Information("Commit = {Commit}", GitRepository.Commit);
             Log.Information("MinVer = {Value}", MinVer?.Version);
+            Log.Information("Configuration = {Configuration}", Configuration);
         });
 
     Target Clean => _ => _
