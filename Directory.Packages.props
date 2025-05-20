@@ -8,7 +8,7 @@
     <PackageVersion Include="MinVer" Version="6.0.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
     <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="17.14.2" />
-    <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="1.6.3" />    
+    <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="1.7.0" />    
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
     <PackageVersion Include="ReportGenerator" Version="5.4.7" />
     <PackageVersion Include="Roslynator.Analyzers" Version="4.13.1" />
