@@ -1,10 +1,10 @@
-using System.Collections.Generic;
 using System.Linq;
 using Nuke.Common;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Git;
+using Nuke.Common.Tooling;
 using Serilog;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 using Nuke.Common.Tools.MinVer;
@@ -14,7 +14,7 @@ class Build : NukeBuild
     public static int Main() => Execute<Build>(x => x.Test);
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
-    readonly string Configuration = IsLocalBuild ? "Debug" : "Release";
+    readonly Configuration  Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
 
     [Solution] readonly Solution Solution;
 
@@ -25,6 +25,7 @@ class Build : NukeBuild
     AbsolutePath sourceDirectory => RootDirectory;
     AbsolutePath testDirectory => RootDirectory;
     AbsolutePath artifactsDirectory => RootDirectory / "artifacts";
+    AbsolutePath TestResultsDirectory => artifactsDirectory / "results";
 
     Target Print => _ => _
         .Executes(() =>
@@ -59,6 +60,7 @@ class Build : NukeBuild
             DotNetBuild(s => s
                 .SetProjectFile(Solution)
                 .SetConfiguration(Configuration)
+                .SetVersion(MinVer?.Version)
                 .EnableNoRestore());
         });
 
@@ -68,12 +70,15 @@ class Build : NukeBuild
         {
             DotNetRun(s => s
                 .SetProjectFile(Solution.Projects.FirstOrDefault(x => x.Name == "Flake.Tests"))
-                .SetProperties( new Dictionary<string, object>
-                {
-                    ["CollectCoverage"] = "true" , 
-                    ["CoverletOutputFormat"] = "cobertura",
-                })
+                .SetProcessAdditionalArguments(
+                    "--",
+                    "--coverage-output-format",
+                    "cobertura",
+                    "--coverage-output",
+                    TestResultsDirectory
+                )
                 .SetConfiguration(Configuration)
+                .SetVersion(MinVer?.Version)
                 .SetFramework("net90")
                 .EnableNoRestore()
                 .EnableNoBuild());
