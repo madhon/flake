@@ -72,10 +72,12 @@ class Build : NukeBuild
                 .SetProjectFile(Solution.Projects.FirstOrDefault(x => x.Name == "Flake.Tests"))
                 .SetProcessAdditionalArguments(
                     "--",
+                    "--coverage",
                     "--coverage-output-format",
                     "cobertura",
-                    "--coverage-output",
-                    TestResultsDirectory
+                    "--report-trx"
+                    //"--coverage-output",
+                    //TestResultsDirectory
                 )
                 .SetConfiguration(Configuration)
                 .SetVersion(MinVer?.Version)
