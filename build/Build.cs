@@ -71,11 +71,11 @@ class Build : NukeBuild
             DotNetRun(s => s
                 .SetProjectFile(Solution.Projects.FirstOrDefault(x => x.Name == "Flake.Tests"))
                 .SetProcessAdditionalArguments(
-                    "--",
-                    "--coverage",
-                    "--coverage-output-format",
-                    "cobertura",
-                    "--report-trx"
+                    //"--",
+                    //"--coverage",
+                    //"--coverage-output-format",
+                    //"cobertura",
+                    //"--report-trx"
                     //"--coverage-output",
                     //TestResultsDirectory
                 )

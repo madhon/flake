@@ -6,11 +6,13 @@
     <IsTestProject>true</IsTestProject>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
     <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+    <TestingPlatformCommandLineArguments>$(TestingPlatformCommandLineArguments) --coverage --coverage-output-format cobertura --coverage-output coverage.cobertura.xml --report-trx --report-trx-filename testreport.trx  </TestingPlatformCommandLineArguments>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Shouldly" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
+      <PackageReference Include="Microsoft.Testing.Platform.MSBuild" />      
     <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage"/>
     <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" />
     <PackageReference Include="System.Text.RegularExpressions" />
@@ -29,4 +31,13 @@
     <ProjectReference Include="..\Flake\Flake.csproj" />
   </ItemGroup>
 
+    <ItemGroup>
+        <Content Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Using Include="Xunit" />
+        <Using Include="Shouldly" />
+    </ItemGroup>
+    
 </Project>
