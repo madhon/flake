@@ -1,0 +1,25 @@
+#nullable enable
+const Flake.IdWorker.TimestampLeftShift = 22 -> int
+const Flake.IdWorker.Twepoch = 1288834974657 -> long
+Flake.DisposableAction
+Flake.DisposableAction.DisposableAction(System.Action! action) -> void
+Flake.DisposableAction.Dispose() -> void
+Flake.IdWorker
+Flake.IdWorker.DatacenterId.get -> long
+Flake.IdWorker.DatacenterId.set -> void
+Flake.IdWorker.IdWorker(long workerId, long datacenterId, long sequence = 0) -> void
+Flake.IdWorker.Sequence.get -> long
+Flake.IdWorker.Sequence.set -> void
+Flake.IdWorker.WorkerId.get -> long
+Flake.IdWorker.WorkerId.set -> void
+virtual Flake.IdWorker.NextId() -> long
+virtual Flake.IdWorker.TilNextMillis(long lastTimestamp) -> long
+virtual Flake.IdWorker.TimeGen() -> long
+Flake.InvalidSystemClockException
+Flake.InvalidSystemClockException.InvalidSystemClockException() -> void
+Flake.InvalidSystemClockException.InvalidSystemClockException(string! message) -> void
+Flake.InvalidSystemClockException.InvalidSystemClockException(string! message, System.Exception! innerException) -> void
+Flake.TimeExtensions
+static Flake.TimeExtensions.CurrentTimeMillis() -> long
+static Flake.TimeExtensions.StubCurrentTime(long millis) -> System.IDisposable!
+static Flake.TimeExtensions.StubCurrentTime(System.Func<long>! func) -> System.IDisposable!

@@ -17,7 +17,7 @@ public static class TimeExtensions
     public static IDisposable StubCurrentTime(long millis)
     {
         currentTimeFunc = () => millis;
-        return new DisposableAction(() => { currentTimeFunc = InternalCurrentTimeMillis; });
+        return new DisposableAction(() => currentTimeFunc = InternalCurrentTimeMillis);
     }
 
 #if NETSTANDARD2_0

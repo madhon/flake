@@ -70,15 +70,6 @@ class Build : NukeBuild
         {
             DotNetRun(s => s
                 .SetProjectFile(Solution.Projects.FirstOrDefault(x => x.Name == "Flake.Tests"))
-                .SetProcessAdditionalArguments(
-                    //"--",
-                    //"--coverage",
-                    //"--coverage-output-format",
-                    //"cobertura",
-                    //"--report-trx"
-                    //"--coverage-output",
-                    //TestResultsDirectory
-                )
                 .SetConfiguration(Configuration)
                 .SetVersion(MinVer?.Version)
                 .SetFramework("net90")
