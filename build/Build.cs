@@ -72,7 +72,7 @@ class Build : NukeBuild
                 .SetProjectFile(Solution.Projects.FirstOrDefault(x => x.Name == "Flake.Tests"))
                 .SetConfiguration(Configuration)
                 .SetVersion(MinVer?.Version)
-                .SetFramework("net90")
+                .SetFramework("net10.0")
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
