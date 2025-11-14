@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<OutputType>Exe</OutputType>
-	<TargetFramework>net9.0</TargetFramework>
+	<TargetFramework>net10.0</TargetFramework>
 	<RootNamespace></RootNamespace>
 	<NoWarn>CS0649;CS0169</NoWarn>
 	<NukeRootDirectory>..</NukeRootDirectory>
@@ -12,14 +12,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.14.28" />
+	<PackageReference Include="Microsoft.Build" Version="18.0.2" />
+	<PackageReference Include="Microsoft.Build.Tasks.Core" Version="18.0.2" />
 	<PackageReference Include="MinVer" Version="6.0.0" />
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 	<PackageReference Include="Nuke.Common" Version="9.0.4" />
-	<PackageReference Include="System.Formats.Asn1" Version="9.0.11" />
-	<PackageReference Include="System.Text.Json" Version="9.0.11" />
-	<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-	<PackageReference Include="NuGet.Packaging" Version="6.14.0" />
+	<PackageReference Include="NuGet.Packaging" Version="7.0.0" />
 	<PackageReference Include="Azure.Core" Version="1.50.0" />
   	<PackageReference Include="Azure.Identity" Version="1.17.0" />
   </ItemGroup>

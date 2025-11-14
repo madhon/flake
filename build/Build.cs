@@ -4,7 +4,6 @@ using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Git;
-using Nuke.Common.Tooling;
 using Serilog;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 using Nuke.Common.Tools.MinVer;
