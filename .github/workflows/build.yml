@@ -28,3 +28,20 @@ jobs:
       - name: Build
         run: ./build.sh Test
         
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: (!cancelled())
+        with:
+          files: |
+            **/*.trx
+
+      - name: Code Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        if: (!cancelled())
+        with:
+          filename: '**/coverage.cobertura.xml'
+          badge: true
+          format: 'markdown'
+          output: 'both'
+      - name: Write Code Coverage to Job Summary
+        run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
