@@ -9,6 +9,5 @@
     <Build Project="false" />
   </Project>
   <Project Path="Flake.Tests/Flake.Tests.csproj" />
-  <Project Path="Flake.TTests/Flake.TTests.csproj" />
   <Project Path="Flake/Flake.csproj" />
 </Solution>
