@@ -57,11 +57,8 @@ public class IdWorker
     public long Sequence { get; set; }
 
     // def get_timestamp() = System.currentTimeMillis
-#if NET9_0_OR_GREATER
     private readonly Lock _lock = new ();
-#else
-        private readonly object _lock = new object();
-#endif
+
     /// <summary>
     /// Generates and returns the next unique ID.
     /// </summary>
