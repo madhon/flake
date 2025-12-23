@@ -3,14 +3,18 @@
     <PackageVersion Include="altcover" Version="9.0.102" />
     <PackageVersion Include="coverlet.msbuild" Version="6.0.4" />
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
+    <PackageVersion Include="Meziantou.Polyfill" Version="1.0.71">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageVersion>
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="Meziantou.Analyzer" Version="2.0.264" />
     <PackageVersion Include="MinVer" Version="6.0.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
-    <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.0.2" />      
+    <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.0.2" />
     <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.1.0" />
     <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="2.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.TimeProvider.Testing" Version="10.1.0" />    
+    <PackageVersion Include="Microsoft.Extensions.TimeProvider.Testing" Version="10.1.0" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
     <PackageVersion Include="Roslynator.Analyzers" Version="4.15.0" />
     <PackageVersion Include="Roslynator.Formatting.Analyzers" Version="4.15.0" />

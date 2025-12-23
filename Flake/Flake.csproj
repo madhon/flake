@@ -21,6 +21,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+      <PackageReference Include="Meziantou.Polyfill">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
       <PackageReference Include="Microsoft.Bcl.TimeProvider" />
 	  <PackageReference Include="Meziantou.Analyzer">
 	    <PrivateAssets>all</PrivateAssets>
@@ -38,7 +42,7 @@
 	    <PrivateAssets>all</PrivateAssets>
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
-    <PackageReference Include="SecurityCodeScan.VS2019" >
+    <PackageReference Include="SecurityCodeScan.VS2019">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
