@@ -3,7 +3,7 @@
     <PackageVersion Include="altcover" Version="9.0.102" />
     <PackageVersion Include="coverlet.msbuild" Version="6.0.4" />
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
-    <PackageVersion Include="Meziantou.Polyfill" Version="1.0.74">
+    <PackageVersion Include="Meziantou.Polyfill" Version="1.0.75">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
