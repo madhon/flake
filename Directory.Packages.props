@@ -3,12 +3,12 @@
     <PackageVersion Include="altcover" Version="9.0.102" />
     <PackageVersion Include="coverlet.msbuild" Version="6.0.4" />
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
-    <PackageVersion Include="Meziantou.Polyfill" Version="1.0.99">
+    <PackageVersion Include="Meziantou.Polyfill" Version="1.0.100">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
     <PackageVersion Include="Shouldly" Version="4.3.0" />
-    <PackageVersion Include="Meziantou.Analyzer" Version="2.0.283" />
+    <PackageVersion Include="Meziantou.Analyzer" Version="2.0.285" />
     <PackageVersion Include="MinVer" Version="6.1.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.0.2" />
@@ -21,7 +21,7 @@
     <PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageVersion Include="SecurityCodeScan.VS2019" Version="5.6.7" />
     <PackageVersion Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.4" />
-    <PackageVersion Include="TUnit" Version="1.12.3" />
+    <PackageVersion Include="TUnit" Version="1.12.15" />
     <PackageVersion Include="Microsoft.Bcl.TimeProvider" Version="10.0.2" />
   </ItemGroup>
 </Project>
