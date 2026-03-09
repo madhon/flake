@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 
+[NotInParallel]
 public class IdWorkerFixture
 {
     private const long WorkerMask = 0x000000000001F000L;
@@ -10,7 +11,6 @@ public class IdWorkerFixture
     private const ulong TimestampMask = 0xFFFFFFFFFFC00000UL;
 
     [Test]
-    [NotInParallel]
     public void It_should_generate_an_id()
     {
         var worker = new IdWorker(1, 1);
@@ -24,7 +24,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_return_the_correct_job_id()
     {
         var s = new IdWorker(1, 1);
@@ -32,7 +31,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_return_the_datacenter_id()
     {
         var s = new IdWorker(1, 1);
@@ -40,7 +38,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_properly_mask_worker_id()
     {
         const long workerId = 0x1F;
@@ -55,7 +52,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_properly_mask_the_datacenter_id()
     {
         const int workerId = 0x1F;
@@ -70,7 +66,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_properly_mask_timestamp()
     {
         var worker = new IdWorker(31, 31);
@@ -88,7 +83,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_roll_over_sequence_id()
     {
         const long workerId = 4;
@@ -107,7 +101,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_generate_increasing_ids()
     {
         var worker = new IdWorker(1, 1);
@@ -121,7 +114,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_generate_1_million_ids_quickly()
     {
         var worker = new IdWorker(31, 31);
@@ -136,7 +128,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_sleep_if_we_rollover_twice_in_the_same_millisecond()
     {
         var worker = new WakingIdWorker(1, 1);
@@ -170,7 +161,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_generate_only_unique_ids()
     {
         var worker = new IdWorker(31, 31);
@@ -192,7 +182,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_generate_ids_over_50_billion()
     {
         var worker = new IdWorker(0, 0);
@@ -201,7 +190,6 @@ public class IdWorkerFixture
     }
 
     [Test]
-    [NotInParallel]
     public void It_should_generate_only_unique_ids_even_when_time_goes_backward()
     {
         const long sequenceMask = -1L ^ (-1L << 12);

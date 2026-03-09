@@ -8,7 +8,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
     <PackageVersion Include="Shouldly" Version="4.3.0" />
-    <PackageVersion Include="Meziantou.Analyzer" Version="3.0.19" />
+    <PackageVersion Include="Meziantou.Analyzer" Version="3.0.21" />
     <PackageVersion Include="MinVer" Version="6.1.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
     <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.1.0" />
@@ -21,7 +21,7 @@
     <PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageVersion Include="SecurityCodeScan.VS2019" Version="5.6.7" />
     <PackageVersion Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="3.3.4" />
-    <PackageVersion Include="TUnit" Version="1.18.21" />
+    <PackageVersion Include="TUnit" Version="1.19.16" />
     <PackageVersion Include="Microsoft.Bcl.TimeProvider" Version="10.0.3" />
   </ItemGroup>
 </Project>
