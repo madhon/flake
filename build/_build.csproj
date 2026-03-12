@@ -19,7 +19,7 @@
 	<PackageReference Include="Nuke.Common" Version="10.1.0" />
 	<PackageReference Include="NuGet.Packaging" Version="7.3.0" />
 	<PackageReference Include="Azure.Core" Version="1.51.1" />
-  	<PackageReference Include="Azure.Identity" Version="1.18.0" />
+  	<PackageReference Include="Azure.Identity" Version="1.19.0" />
   </ItemGroup>
 
   <ItemGroup>
