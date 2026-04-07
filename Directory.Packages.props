@@ -10,7 +10,7 @@
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="Meziantou.Analyzer" Version="3.0.43" />
     <PackageVersion Include="MinVer" Version="6.1.0" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.4.0" />
     <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.1.0" />
     <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.5.2" />
     <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="2.1.0" />
