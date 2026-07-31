@@ -2,7 +2,7 @@
 
 using System;
 
-public class InvalidSystemClockException : Exception
+public sealed class InvalidSystemClockException : Exception
 {
     public InvalidSystemClockException(string message) : base(message)
     {
