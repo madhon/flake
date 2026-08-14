@@ -230,6 +230,7 @@ $RECYCLE.BIN/
 .DS_Store
 
 .nuke/temp
+.fallout/temp
 .idea
 coverage.json
 .qodo

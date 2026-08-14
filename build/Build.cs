@@ -1,14 +1,14 @@
 using System.Linq;
-using Nuke.Common;
-using Nuke.Common.IO;
-using Nuke.Common.ProjectModel;
-using Nuke.Common.Tools.DotNet;
-using Nuke.Common.Git;
+using Fallout.Common;
+using Fallout.Common.IO;
+using Fallout.Solutions;
+using Fallout.Common.Tools.DotNet;
+using Fallout.Common.Git;
 using Serilog;
-using static Nuke.Common.Tools.DotNet.DotNetTasks;
-using Nuke.Common.Tools.MinVer;
+using static Fallout.Common.Tools.DotNet.DotNetTasks;
+using Fallout.Common.Tools.MinVer;
 
-class Build : NukeBuild
+class Build : FalloutBuild
 {
     public static int Main() => Execute<Build>(x => x.Test);
 
