@@ -17,7 +17,7 @@
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 	<PackageReference Include="Fallout.Common" Version="10.4.0" />
 	<PackageReference Include="NuGet.Packaging" Version="7.9.0" />
-	<PackageReference Include="Azure.Core" Version="1.61.0" />
+	<PackageReference Include="Azure.Core" Version="1.62.0" />
   	<PackageReference Include="Azure.Identity" Version="1.21.0" />
 </ItemGroup>
 
