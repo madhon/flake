@@ -15,7 +15,7 @@
 	<PackageReference Include="Microsoft.Build.Tasks.Core" Version="18.11.0" />
 	<PackageReference Include="MinVer" Version="6.1.0" />
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-	<PackageReference Include="Fallout.Common" Version="10.4.0" />
+	<PackageReference Include="Fallout.Common" Version="10.5.0" />
 	<PackageReference Include="NuGet.Packaging" Version="7.9.0" />
 	<PackageReference Include="Azure.Core" Version="1.64.0" />
   	<PackageReference Include="Azure.Identity" Version="1.21.0" />
