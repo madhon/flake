@@ -71,7 +71,7 @@ class Build : FalloutBuild
                 .SetProjectFile(Solution.Projects.FirstOrDefault(x => x.Name == "Flake.Tests"))
                 .SetConfiguration(Configuration)
                 .SetVersion(MinVer?.Version)
-                .SetFramework("net10.0")
+                .SetFramework("net11.0")
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
