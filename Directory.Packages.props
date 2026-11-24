@@ -1,4 +1,5 @@
 <Project>
+  <!-- Framework-agnostic packages (shared across all targets) -->
   <ItemGroup>
     <PackageVersion Include="altcover" Version="9.0.145" />
     <PackageVersion Include="Meziantou.Polyfill" Version="1.0.173">
@@ -6,20 +7,31 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
     <PackageVersion Include="Shouldly" Version="4.3.0" />
-    <PackageVersion Include="Meziantou.Analyzer" Version="3.0.341" />
+    <PackageVersion Include="Meziantou.Analyzer" Version="3.0.342" />
     <PackageVersion Include="MinVer" Version="6.1.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.12.0" />
     <PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.5.3" />
     <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.12.0" />
     <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="2.5.3" />
-    <PackageVersion Include="Microsoft.Extensions.TimeProvider.Testing" Version="10.11.0" />
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.404" />
     <PackageVersion Include="Roslynator.Analyzers" Version="5.0.1" />
     <PackageVersion Include="Roslynator.Formatting.Analyzers" Version="5.0.1" />
     <PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageVersion Include="SecurityCodeScan.VS2019" Version="5.6.7" />
     <PackageVersion Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="5.6.0" />
     <PackageVersion Include="TUnit" Version="1.87.12" />
+  </ItemGroup>
+
+  <!-- .NET 11+ specific package versions -->
+  <ItemGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net11.0'))">
+    <PackageVersion Include="Microsoft.Extensions.TimeProvider.Testing" Version="11.0.0" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="11.0.100" />
+    <PackageVersion Include="Microsoft.Bcl.TimeProvider" Version="11.0.0" />
+  </ItemGroup>
+
+  <!-- .NET Standard and .NET 10 (fallback for anything below net11.0) -->
+  <ItemGroup Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net11.0'))">
+    <PackageVersion Include="Microsoft.Extensions.TimeProvider.Testing" Version="10.11.0" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.404" />
     <PackageVersion Include="Microsoft.Bcl.TimeProvider" Version="10.0.15" />
   </ItemGroup>
 </Project>
